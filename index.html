@@ -84,6 +84,7 @@
         }
         button.addEventListener('click', () => {
             let ijunId = 'IJUN' + (Math.floor(Math.random() * 990) + 10).toString().padStart(3, '0');
+            let hjunId = '';
             const value = text.value
             if (value == '') {
                 alert('IJUN，请输入你的名字。')
@@ -105,7 +106,8 @@
             }else if(value == '毛毛'){
                 ijunId = 'IJUN007';
             }else if(value == 'PYL'){
-                ijunId = 'IJUN414\nHJUN001';
+                ijunId = 'IJUN414';
+                hjunId = 'HJUN001';
             }
             // canvasDom.style.display = 'inline';
             const img = new Image();
@@ -121,6 +123,9 @@
                 canvas.font = 'italic 90px Arial';
                 canvas.fillStyle = 'red';
                 canvas.fillText(ijunId, 100, 1110);
+                if( hjunId != '' ){
+                    canvas.fillText(hjunId, 100, 1210);
+                }
                 canvas.stroke();
                 let dataImg = new Image()
                 dataImg.src = canvasDom.toDataURL('image/png')
